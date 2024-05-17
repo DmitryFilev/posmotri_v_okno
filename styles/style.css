@@ -21,10 +21,10 @@ html {
 .content{
   display: flex;
   flex-direction: row;
-  width: 1140; 
+  width: 1140px; 
   margin: 133px 30px;
   justify-content: space-between;
-  align-items:end;
+  align-items: end;
  }
 
 .content__list
@@ -66,6 +66,7 @@ ol {
   font-weight: 700;
   font-family: 'Fira Sans Condensed', sans-serif;
 }
+
 .search-form__submit-button {
   width: 194px;
   cursor: pointer;
@@ -91,10 +92,11 @@ ol {
 }
 /* result */
 .result {
-  margin-right: 30px;
+  margin-right: 26px;
 }
 
 .result__video-container {
+  position: relative;
   width: 711px;
   height: 386px;
   margin-bottom: 16px;
@@ -104,13 +106,14 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 /* search */
 .search-form {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0px;
-  padding-bottom:0px; 
+  padding-bottom: 0px; 
 }
 
 .search-form__fieldset {
@@ -122,7 +125,7 @@ justify-content: space-between;
   font-size: 18px;  
   font-weight: 400;
   line-height: 22px;
-  padding-bottom:4px;
+  padding-bottom: 4px;
 }
 
 .search-form__label{
@@ -132,7 +135,7 @@ justify-content: space-between;
 .search-form__textfield {
   appearance: none;
   padding: 0;
-  width: 225px;
+  width: 226px;
   background-color: transparent;
   color: #fff;
   border-style: none;
@@ -146,23 +149,31 @@ justify-content: space-between;
   line-height: 26px;
 }
 
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255/0.7);
+}
+
 .search-form__checkbox-list {
   display: flex;
   cursor: pointer;
-  width: 207px;
+  width: 209px;
   justify-content: space-between;
 }
 
 .search-form__pseudo-checkbox {
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   margin-right: 6px;
   vertical-align: middle;
   outline: 1px solid #fff;
   outline-offset: 2px;
-  background-color: transporent;
+  background-color: transparent;
   align-self: center;
+}
+
+.search-form__label-text {
+  padding-left: 2px;
 }
 /* search text field status*/
 .search-form__label:has(.search-form__textfield:focus){
@@ -186,10 +197,12 @@ justify-content: space-between;
 .search-form__checkbox:checked+.search-form__pseudo-checkbox {
   background-color: #fff;
 }
+
 .search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px; 
 }
+
 .search-form__pseudo-checkbox:active {
   background-color: #fff;
 }
@@ -205,7 +218,7 @@ justify-content: space-between;
 /* TITLE */
 .title {
   margin: 0;
-  padding-top: 2px;
+  padding: 2px 0 0 4px;
   font-family: 'Oswald', sans-serif;
   font-size: 75px;
   line-height: 70px;
@@ -214,30 +227,35 @@ justify-content: space-between;
 
 .content__accent {
   color:#545050;
+  text-transform: uppercase;
 }
 /* card */
   .content__list {
-  height: 298px;
-  margin-top: 24px;
-  overflow:auto;
+  position: relative;
+  height: 301px;
+  margin-top: 21px;
+  overflow: auto;
+  padding: 3px;
 }
 
 .content__list-item:not(:last-child) {
   margin-bottom: 31px;
-  }
+}
 
 .content__card-link {
+  appearance: none;
   display: block;
   text-decoration: none;
   color: #fff;
   margin: 0 2px;
-  }
+  outline: none;
+}
  
   .content__video-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items:start;
+  align-items: start;
   width: 394px;
 }
 
@@ -249,6 +267,10 @@ justify-content: space-between;
   font-size: 30px;  
   font-weight: 700;
   line-height: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 206px; 
 }
 
 .content__video-card-description{
@@ -260,26 +282,24 @@ justify-content: space-between;
 .content__video-card-thumbnail {
 width: 100%;
 height: 106px;
-object-fit:cover;
-}
-
-.content__card-link {
-  appearance: none;
-  outline:none;
+object-fit: cover;
+object-position: center;
 }
 /* card status*/
 .content__card-link:hover {
   text-decoration: underline;
 }
+
 .content__card-link_current {
   background-color: #545050;
 }
+
+.content__card-link:focus {
+  outline: none;
+}
+
 .content__card-link:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 2px;
 
-}
-
-.content__card-link:focus {
-  outline:none;
 }
